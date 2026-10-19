@@ -1,0 +1,24 @@
+[New LWP 104098]
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
+syscall () at ../sysdeps/unix/sysv/linux/aarch64/syscall.S:38
+
+warning: 38	../sysdeps/unix/sysv/linux/aarch64/syscall.S: No such file or directory
+
+Thread 2 (Thread 0xee3271b1f0e0 (LWP 104098) "sums_even_numbe"):
+#0  0x0000c74981519df8 in broken_app::sum_even ()
+#1  0x0000c749814e449c in <integration::sums_even_numbers::{closure#0} as core::ops::function::FnOnce<()>>::call_once ()
+#2  0x0000c749814e477c in test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> ()
+
+Thread 1 (Thread 0xee3271d57020 (LWP 104091) "integration-c45"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/aarch64/syscall.S:38
+#1  0x0000c74981531598 in <std::thread::thread::Thread>::park_timeout ()
+#2  0x0000c749814f02a8 in <std::sync::mpmc::list::Channel<test::event::CompletedTest>>::recv::{closure#1} ()
+No symbol "broken_app" in current context.
+[Inferior 1 (process 104091) detached]

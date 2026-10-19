@@ -1,0 +1,225 @@
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:60:15
+   |
+60 |     let val = *raw;
+   |               ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> src/lib.rs:61:10
+   |
+61 |     drop(Box::from_raw(raw));
+   |          ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:62:11
+   |
+62 |     val + *raw
+   |           ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+warning: unused import: `broken_app::concurrency::reset_counter`
+ --> tests/integration.rs:1:5
+  |
+1 | use broken_app::concurrency::reset_counter;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `broken-app` (test "integration") generated 1 warning (run `cargo fix --test "integration" -p broken-app` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running tests/integration.rs (target/debug/deps/integration-8fa7d00fc58987c9)
+==117245== Memcheck, a memory error detector
+==117245== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==117245== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==117245== Command: /Users/konarlook/code/rust/fixing-practice-05/broken-app/target/debug/deps/integration-8fa7d00fc58987c9 --skip sums_even
+==117245== 
+
+running 9 tests
+test average_positive_ignores_non_positive ... FAILED
+test dedup_preserves_uniques ... ok
+test averages_only_positive ... FAILED
+test counts_non_zero_bytes ... ok
+test normalize_removes_all_whitespace ... FAILED
+==117245== Thread 2 use_after_free_:
+==117245== Invalid read of size 4
+==117245==    at 0x404BE24: broken_app::use_after_free (lib.rs:62)
+==117245==    by 0x40156C7: integration::use_after_free_returns_double (integration.rs:42)
+==117245==    by 0x4016BBB: integration::use_after_free_returns_double::{closure#0} (integration.rs:41)
+==117245==    by 0x40166FF: <integration::use_after_free_returns_double::{closure#0} as core::ops::function::FnOnce<()>>::call_once (function.rs:250)
+==117245==    by 0x4016C7F: call_once<fn() -> core::result::Result<(), alloc::string::String>, ()> (function.rs:250)
+==117245==    by 0x4016C7F: test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> (lib.rs:733)
+==117245==    by 0x4021CFB: {closure#0} (lib.rs:756)
+==117245==    by 0x4021CFB: call_once<core::result::Result<(), alloc::string::String>, test::run_test_in_process::{closure_env#0}> (unwind_safe.rs:275)
+==117245==    by 0x4021CFB: do_call<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panicking.rs:576)
+==117245==    by 0x4021CFB: catch_unwind<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>> (panicking.rs:544)
+==117245==    by 0x4021CFB: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panic.rs:359)
+==117245==    by 0x4021CFB: run_test_in_process (lib.rs:756)
+==117245==    by 0x4021CFB: test::run_test::{closure#0} (lib.rs:677)
+==117245==    by 0x401CA97: {closure#1} (lib.rs:707)
+==117245==    by 0x401CA97: std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> (backtrace.rs:166)
+==117245==    by 0x402425F: {closure#0}<test::run_test::{closure_env#1}, ()> (lifecycle.rs:70)
+==117245==    by 0x402425F: call_once<(), std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>> (unwind_safe.rs:275)
+==117245==    by 0x402425F: do_call<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> (panicking.rs:576)
+==117245==    by 0x402425F: catch_unwind<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>> (panicking.rs:544)
+==117245==    by 0x402425F: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> (panic.rs:359)
+==117245==    by 0x402425F: {closure#1}<test::run_test::{closure_env#1}, ()> (lifecycle.rs:68)
+==117245==    by 0x402425F: <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} (function.rs:250)
+==117245==    by 0x4081CA3: call_once<(), (dyn core::ops::function::FnOnce<(), Output=()> + core::marker::Send), alloc::alloc::Global> (boxed.rs:2320)
+==117245==    by 0x4081CA3: <std::sys::thread::unix::Thread>::new::thread_start (unix.rs:123)
+==117245==    by 0x4A6C247: start_thread (pthread_create.c:454)
+==117245==    by 0x4AD692B: thread_start (clone.S:76)
+==117245==  Address 0x4bd5e80 is 0 bytes inside a block of size 4 free'd
+==117245==    at 0x49686B8: free (vg_replace_malloc.c:990)
+==117245==    by 0x404E20F: dealloc_nonnull (alloc.rs:175)
+==117245==    by 0x404E20F: deallocate_impl_runtime (alloc.rs:321)
+==117245==    by 0x404E20F: deallocate_impl (alloc.rs:436)
+==117245==    by 0x404E20F: <alloc::alloc::Global as core::alloc::Allocator>::deallocate (alloc.rs:554)
+==117245==    by 0x404FB4B: <alloc::boxed::Box<i32> as core::ops::drop::Drop>::drop (boxed.rs:2000)
+==117245==    by 0x404ED13: core::ptr::drop_glue::<alloc::boxed::Box<i32>> (mod.rs:847)
+==117245==    by 0x4050C9F: core::mem::drop::<alloc::boxed::Box<i32>> (mod.rs:1049)
+==117245==    by 0x404BDCF: broken_app::use_after_free (lib.rs:61)
+==117245==    by 0x40156C7: integration::use_after_free_returns_double (integration.rs:42)
+==117245==    by 0x4016BBB: integration::use_after_free_returns_double::{closure#0} (integration.rs:41)
+==117245==    by 0x40166FF: <integration::use_after_free_returns_double::{closure#0} as core::ops::function::FnOnce<()>>::call_once (function.rs:250)
+==117245==    by 0x4016C7F: call_once<fn() -> core::result::Result<(), alloc::string::String>, ()> (function.rs:250)
+==117245==    by 0x4016C7F: test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> (lib.rs:733)
+==117245==    by 0x4021CFB: {closure#0} (lib.rs:756)
+==117245==    by 0x4021CFB: call_once<core::result::Result<(), alloc::string::String>, test::run_test_in_process::{closure_env#0}> (unwind_safe.rs:275)
+==117245==    by 0x4021CFB: do_call<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panicking.rs:576)
+==117245==    by 0x4021CFB: catch_unwind<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>> (panicking.rs:544)
+==117245==    by 0x4021CFB: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panic.rs:359)
+==117245==    by 0x4021CFB: run_test_in_process (lib.rs:756)
+==117245==    by 0x4021CFB: test::run_test::{closure#0} (lib.rs:677)
+==117245==    by 0x401CA97: {closure#1} (lib.rs:707)
+==117245==    by 0x401CA97: std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> (backtrace.rs:166)
+==117245==  Block was alloc'd at
+==117245==    at 0x4965618: malloc (vg_replace_malloc.c:447)
+==117245==    by 0x404DDE3: alloc (alloc.rs:130)
+==117245==    by 0x404DDE3: <alloc::alloc::Global>::alloc_impl_runtime (alloc.rs:302)
+==117245==    by 0x404DCF7: alloc_impl (alloc.rs:424)
+==117245==    by 0x404DCF7: allocate (alloc.rs:541)
+==117245==    by 0x404DCF7: alloc::boxed::box_new_uninit (boxed.rs:251)
+==117245==    by 0x404BD53: new<i32> (boxed.rs:290)
+==117245==    by 0x404BD53: broken_app::use_after_free (lib.rs:58)
+==117245==    by 0x40156C7: integration::use_after_free_returns_double (integration.rs:42)
+==117245==    by 0x4016BBB: integration::use_after_free_returns_double::{closure#0} (integration.rs:41)
+==117245==    by 0x40166FF: <integration::use_after_free_returns_double::{closure#0} as core::ops::function::FnOnce<()>>::call_once (function.rs:250)
+==117245==    by 0x4016C7F: call_once<fn() -> core::result::Result<(), alloc::string::String>, ()> (function.rs:250)
+==117245==    by 0x4016C7F: test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> (lib.rs:733)
+==117245==    by 0x4021CFB: {closure#0} (lib.rs:756)
+==117245==    by 0x4021CFB: call_once<core::result::Result<(), alloc::string::String>, test::run_test_in_process::{closure_env#0}> (unwind_safe.rs:275)
+==117245==    by 0x4021CFB: do_call<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panicking.rs:576)
+==117245==    by 0x4021CFB: catch_unwind<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>> (panicking.rs:544)
+==117245==    by 0x4021CFB: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panic.rs:359)
+==117245==    by 0x4021CFB: run_test_in_process (lib.rs:756)
+==117245==    by 0x4021CFB: test::run_test::{closure#0} (lib.rs:677)
+==117245==    by 0x401CA97: {closure#1} (lib.rs:707)
+==117245==    by 0x401CA97: std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> (backtrace.rs:166)
+==117245==    by 0x402425F: {closure#0}<test::run_test::{closure_env#1}, ()> (lifecycle.rs:70)
+==117245==    by 0x402425F: call_once<(), std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>> (unwind_safe.rs:275)
+==117245==    by 0x402425F: do_call<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> (panicking.rs:576)
+==117245==    by 0x402425F: catch_unwind<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>> (panicking.rs:544)
+==117245==    by 0x402425F: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked::{closure#1}::{closure_env#0}<test::run_test::{closure_env#1}, ()>>, ()> (panic.rs:359)
+==117245==    by 0x402425F: {closure#1}<test::run_test::{closure_env#1}, ()> (lifecycle.rs:68)
+==117245==    by 0x402425F: <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} (function.rs:250)
+==117245==    by 0x4081CA3: call_once<(), (dyn core::ops::function::FnOnce<(), Output=()> + core::marker::Send), alloc::alloc::Global> (boxed.rs:2320)
+==117245==    by 0x4081CA3: <std::sys::thread::unix::Thread>::new::thread_start (unix.rs:123)
+==117245== 
+test fib_small_numbers ... ok
+test normalize_simple ... ok
+test use_after_free_returns_double ... ok
+test race_increment_counts_every_increment ... ok
+
+failures:
+
+---- average_positive_ignores_non_positive stdout ----
+
+thread 'average_positive_ignores_non_positive' (117252) panicked at tests/integration.rs:68:5:
+assertion `left == right` failed
+  left: -1.0
+ right: 0.0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- averages_only_positive stdout ----
+
+thread 'averages_only_positive' (117253) panicked at tests/integration.rs:37:5:
+assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
+
+---- normalize_removes_all_whitespace stdout ----
+
+thread 'normalize_removes_all_whitespace' (117257) panicked at tests/integration.rs:61:5:
+assertion `left == right` failed
+  left: "hello\tworld"
+ right: "helloworld"
+
+
+failures:
+    average_positive_ignores_non_positive
+    averages_only_positive
+    normalize_removes_all_whitespace
+
+test result: FAILED. 6 passed; 3 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.20s
+
+==117245== 
+==117245== HEAP SUMMARY:
+==117245==     in use at exit: 848 bytes in 10 blocks
+==117245==   total heap usage: 932 allocs, 922 frees, 108,119 bytes allocated
+==117245== 
+==117245== Thread 1:
+==117245== 5 bytes in 1 blocks are definitely lost in loss record 2 of 8
+==117245==    at 0x4965618: malloc (vg_replace_malloc.c:447)
+==117245==    by 0x4089A3B: <alloc::raw_vec::RawVecInner>::try_allocate_in (in /Users/konarlook/code/rust/fixing-practice-05/broken-app/target/debug/deps/integration-8fa7d00fc58987c9)
+==117245==    by 0x404CFDF: <alloc::raw_vec::RawVecInner>::with_capacity_in (mod.rs:435)
+==117245==    by 0x404C0DF: with_capacity_in<u8, alloc::alloc::Global> (mod.rs:177)
+==117245==    by 0x404C0DF: with_capacity_in<u8, alloc::alloc::Global> (mod.rs:969)
+==117245==    by 0x404C0DF: <u8 as <[_]>::to_vec_in::ConvertVec>::to_vec::<alloc::alloc::Global> (slice.rs:448)
+==117245==    by 0x404C1C7: to_vec_in<u8, alloc::alloc::Global> (slice.rs:400)
+==117245==    by 0x404C1C7: <[u8]>::to_vec (slice.rs:376)
+==117245==    by 0x404BBB3: broken_app::leak_buffer (lib.rs:23)
+==117245==    by 0x40153D7: integration::counts_non_zero_bytes (integration.rs:14)
+==117245==    by 0x4016B37: integration::counts_non_zero_bytes::{closure#0} (integration.rs:12)
+==117245==    by 0x4016693: <integration::counts_non_zero_bytes::{closure#0} as core::ops::function::FnOnce<()>>::call_once (function.rs:250)
+==117245==    by 0x4016C7F: call_once<fn() -> core::result::Result<(), alloc::string::String>, ()> (function.rs:250)
+==117245==    by 0x4016C7F: test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> (lib.rs:733)
+==117245==    by 0x4021CFB: {closure#0} (lib.rs:756)
+==117245==    by 0x4021CFB: call_once<core::result::Result<(), alloc::string::String>, test::run_test_in_process::{closure_env#0}> (unwind_safe.rs:275)
+==117245==    by 0x4021CFB: do_call<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panicking.rs:576)
+==117245==    by 0x4021CFB: catch_unwind<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>> (panicking.rs:544)
+==117245==    by 0x4021CFB: catch_unwind<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure_env#0}>, core::result::Result<(), alloc::string::String>> (panic.rs:359)
+==117245==    by 0x4021CFB: run_test_in_process (lib.rs:756)
+==117245==    by 0x4021CFB: test::run_test::{closure#0} (lib.rs:677)
+==117245==    by 0x401CA97: {closure#1} (lib.rs:707)
+==117245==    by 0x401CA97: std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> (backtrace.rs:166)
+==117245== 
+==117245== LEAK SUMMARY:
+==117245==    definitely lost: 5 bytes in 1 blocks
+==117245==    indirectly lost: 0 bytes in 0 blocks
+==117245==      possibly lost: 0 bytes in 0 blocks
+==117245==    still reachable: 795 bytes in 8 blocks
+==117245==         suppressed: 48 bytes in 1 blocks
+==117245== Reachable blocks (those to which a pointer was found) are not shown.
+==117245== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==117245== 
+==117245== For lists of detected and suppressed errors, rerun with: -s
+==117245== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 1 from 1)
+error: test failed, to rerun pass `--test integration`
+
+Caused by:
+  process didn't exit successfully: `valgrind --leak-check=full --error-exitcode=1 --suppressions=scripts/rust-std.supp /Users/konarlook/code/rust/fixing-practice-05/broken-app/target/debug/deps/integration-8fa7d00fc58987c9 --skip sums_even` (exit status: 1)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

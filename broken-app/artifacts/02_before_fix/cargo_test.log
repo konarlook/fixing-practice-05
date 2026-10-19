@@ -1,0 +1,118 @@
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:60:15
+   |
+60 |     let val = *raw;
+   |               ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> src/lib.rs:61:10
+   |
+61 |     drop(Box::from_raw(raw));
+   |          ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:62:11
+   |
+62 |     val + *raw
+   |           ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+warning: `broken-app` (lib test) generated 3 warnings (3 duplicates)
+warning: unused import: `broken_app::concurrency::reset_counter`
+ --> tests/integration.rs:1:5
+  |
+1 | use broken_app::concurrency::reset_counter;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `broken-app` (test "integration") generated 1 warning (run `cargo fix --test "integration" -p broken-app` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running unittests src/lib.rs (target/debug/deps/broken_app-4489f96028b956fd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/demo.rs (target/debug/deps/demo-6c02d82eb0edc7f2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/integration.rs (target/debug/deps/integration-8fa7d00fc58987c9)
+
+running 9 tests
+test average_positive_ignores_non_positive ... FAILED
+test counts_non_zero_bytes ... ok
+test averages_only_positive ... FAILED
+test dedup_preserves_uniques ... ok
+test fib_small_numbers ... ok
+test normalize_simple ... ok
+test normalize_removes_all_whitespace ... FAILED
+test use_after_free_returns_double ... FAILED
+test race_increment_counts_every_increment ... FAILED
+
+failures:
+
+---- average_positive_ignores_non_positive stdout ----
+
+thread 'average_positive_ignores_non_positive' (114100) panicked at tests/integration.rs:68:5:
+assertion `left == right` failed
+  left: -1.0
+ right: 0.0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- averages_only_positive stdout ----
+
+thread 'averages_only_positive' (114101) panicked at tests/integration.rs:37:5:
+assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
+
+---- normalize_removes_all_whitespace stdout ----
+
+thread 'normalize_removes_all_whitespace' (114106) panicked at tests/integration.rs:61:5:
+assertion `left == right` failed
+  left: "hello\tworld"
+ right: "helloworld"
+
+---- use_after_free_returns_double stdout ----
+
+thread 'use_after_free_returns_double' (114109) panicked at tests/integration.rs:43:5:
+assertion `left == right` failed
+  left: 1635731824
+ right: 84
+
+---- race_increment_counts_every_increment stdout ----
+
+thread 'race_increment_counts_every_increment' (114108) panicked at tests/integration.rs:53:5:
+assertion `left == right` failed
+  left: 257772
+ right: 400000
+
+
+failures:
+    average_positive_ignores_non_positive
+    averages_only_positive
+    normalize_removes_all_whitespace
+    race_increment_counts_every_increment
+    use_after_free_returns_double
+
+test result: FAILED. 4 passed; 5 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test integration`

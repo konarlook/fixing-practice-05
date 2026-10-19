@@ -1,0 +1,8 @@
+{
+    rust-std-thread-handle-in-tls
+    Memcheck:Leak
+    match-leak-kinds: possible
+    fun:malloc
+    ...
+    fun:*init_current*
+}

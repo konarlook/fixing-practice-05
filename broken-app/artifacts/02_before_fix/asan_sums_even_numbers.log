@@ -1,0 +1,233 @@
+   Compiling compiler_builtins v0.1.160 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling libc v0.2.189
+   Compiling object v0.39.1
+   Compiling std v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std)
+   Compiling test v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test)
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling serde_core v1.0.228
+   Compiling crossbeam-utils v0.8.21
+   Compiling syn v2.0.111
+   Compiling zerocopy v0.8.31
+   Compiling autocfg v1.5.0
+   Compiling serde v1.0.228
+   Compiling num-traits v0.2.19
+   Compiling serde_json v1.0.145
+   Compiling libc v0.2.178
+   Compiling rayon-core v1.13.0
+   Compiling zerocopy-derive v0.8.31
+   Compiling serde_derive v1.0.228
+   Compiling rustc-std-workspace-core v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+   Compiling alloc v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+   Compiling memchr v2.8.3
+   Compiling adler2 v2.0.1
+   Compiling cfg-if v1.0.4
+   Compiling unwind v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/unwind)
+   Compiling rustc-demangle v0.1.28
+   Compiling rustc-literal-escaper v0.0.8
+   Compiling rustc-std-workspace-alloc v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-alloc)
+   Compiling panic_abort v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_abort)
+   Compiling panic_unwind v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_unwind)
+   Compiling gimli v0.34.0
+   Compiling hashbrown v0.17.1
+   Compiling std_detect v0.1.5 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std_detect)
+   Compiling miniz_oxide v0.9.1
+   Compiling addr2line v0.27.1
+   Compiling rustc-std-workspace-std v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-std)
+   Compiling proc_macro v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/proc_macro)
+   Compiling getopts v0.2.24
+   Compiling crossbeam-epoch v0.9.18
+   Compiling either v1.15.0
+   Compiling crossbeam-deque v0.8.6
+   Compiling anstyle v1.0.13
+   Compiling ciborium-io v0.2.2
+   Compiling memchr v2.7.6
+   Compiling ryu v1.0.20
+   Compiling itoa v1.0.15
+   Compiling clap_lex v0.7.6
+   Compiling regex-syntax v0.8.8
+   Compiling plotters-backend v0.3.7
+   Compiling half v2.7.1
+   Compiling plotters-svg v0.3.7
+   Compiling ciborium-ll v0.2.2
+   Compiling clap_builder v4.5.53
+   Compiling regex-automata v0.4.13
+   Compiling itertools v0.10.5
+   Compiling cast v0.3.0
+   Compiling same-file v1.0.6
+   Compiling walkdir v2.5.0
+   Compiling plotters v0.3.7
+   Compiling is-terminal v0.4.17
+   Compiling regex v1.12.2
+   Compiling criterion-plot v0.5.0
+   Compiling clap v4.5.53
+   Compiling tinytemplate v1.2.1
+   Compiling rayon v1.11.0
+   Compiling ciborium v0.2.2
+   Compiling anes v0.1.6
+   Compiling broken-app v0.1.0 (/Users/konarlook/code/rust/fixing-practice-05/broken-app)
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:60:15
+   |
+60 |     let val = *raw;
+   |               ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> src/lib.rs:61:10
+   |
+61 |     drop(Box::from_raw(raw));
+   |          ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:62:11
+   |
+62 |     val + *raw
+   |           ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+   Compiling oorandom v11.1.5
+   Compiling once_cell v1.21.3
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+   Compiling criterion v0.5.1
+warning: unused import: `broken_app::concurrency::reset_counter`
+ --> tests/integration.rs:1:5
+  |
+1 | use broken_app::concurrency::reset_counter;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `broken-app` (test "integration") generated 1 warning (run `cargo fix --test "integration" -p broken-app` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.74s
+     Running tests/integration.rs (target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661)
+
+running 1 test
+=================================================================
+==118817==ERROR: AddressSanitizer: stack-buffer-overflow on address 0xe800439e0e60 at pc 0xb1e19b9c79bc bp 0xe800445fd230 sp 0xe800445fd228
+READ of size 8 at 0xe800439e0e60 thread T1
+    #0 0xb1e19b9c79b8  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x3b79b8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #1 0xb1e19b821d68  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x211d68) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #2 0xb1e19b82141c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x21141c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #3 0xb1e19b81f0d8  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x20f0d8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #4 0xb1e19b95678c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x34678c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #5 0xb1e19b823b60  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x213b60) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #6 0xb1e19b891df4  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x281df4) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #7 0xb1e19b832874  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x222874) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #8 0xb1e19b86d928  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x25d928) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #9 0xb1e19b8e9828  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2d9828) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #10 0xb1e19b8f923c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2e923c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #11 0xb1e19b8e6240  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2d6240) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #12 0xb1e19b8a0bd4  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x290bd4) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #13 0xb1e19b8373cc  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2273cc) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #14 0xb1e19b834554  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x224554) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #15 0xb1e19b834cac  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x224cac) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #16 0xb1e19b870968  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x260968) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #17 0xb1e19b91c120  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x30c120) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #18 0xb1e19b86d774  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x25d774) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #19 0xb1e19b8e95cc  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2d95cc) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #20 0xb1e19b8f923c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2e923c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #21 0xb1e19b8e6544  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2d6544) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #22 0xb1e19b8a0a10  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x290a10) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #23 0xb1e19b919cc0  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x309cc0) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #24 0xb1e19b94b2cc  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x33b2cc) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #25 0xb1e19ba403b8  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x4303b8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #26 0xb1e19ba3e19c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x42e19c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #27 0xb1e19b7ee8d4  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x1de8d4) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #28 0xec004789c244  (/usr/lib/aarch64-linux-gnu/libc.so.6+0x8c244) (BuildId: 5697d481680bea92debb50f8a02893668fb7f6e1)
+    #29 0xec0047906b98  (/usr/lib/aarch64-linux-gnu/libc.so.6+0xf6b98) (BuildId: 5697d481680bea92debb50f8a02893668fb7f6e1)
+
+Address 0xe800439e0e60 is located in stack of thread T1 at offset 96 in frame
+    #0 0xb1e19b821c38  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x211c38) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+
+  This frame has 2 object(s):
+    [32, 40) '_4' (line 8)
+    [64, 96) 'nums' (line 6) <== Memory access at offset 96 overflows this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+Thread T1 created by T0 here:
+    #0 0xb1e19b7d2908  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x1c2908) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #1 0xb1e19ba2df14  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x41df14) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #2 0xb1e19b910968  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x300968) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #3 0xb1e19b843024  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x233024) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #4 0xb1e19b8432ec  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2332ec) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #5 0xb1e19b839664  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x229664) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #6 0xb1e19b826454  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x216454) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #7 0xb1e19b8d0f90  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x2c0f90) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #8 0xb1e19b835da0  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x225da0) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #9 0xb1e19b836c8c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x226c8c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #10 0xb1e19b821708  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x211708) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #11 0xb1e19b81ef0c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x20ef0c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #12 0xb1e19b81ebb8  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x20ebb8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #13 0xb1e19b81fda0  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x20fda0) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #14 0xb1e19babee2c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x4aee2c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #15 0xb1e19bbb93e0  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5a93e0) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #16 0xb1e19bbe3e84  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5d3e84) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #17 0xb1e19bbb39e8  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5a39e8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #18 0xb1e19bb9cac4  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x58cac4) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #19 0xb1e19b9e5a7c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x3d5a7c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #20 0xb1e19bbb92b4  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5a92b4) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #21 0xb1e19bbe3e84  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5d3e84) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #22 0xb1e19bbb3708  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x5a3708) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #23 0xb1e19bb9ca18  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x58ca18) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #24 0xb1e19b9f438c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x3e438c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #25 0xb1e19b81fcdc  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x20fcdc) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #26 0xb1e19b82335c  (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x21335c) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955)
+    #27 0xec0047832f18  (/usr/lib/aarch64-linux-gnu/libc.so.6+0x22f18) (BuildId: 5697d481680bea92debb50f8a02893668fb7f6e1)
+    #28 0x7dec0047833058  (<unknown module>)
+    #29 0x51b1e19b75f5ac  (<unknown module>)
+
+SUMMARY: AddressSanitizer: stack-buffer-overflow (/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661+0x3b79b8) (BuildId: a2adf0029cc68eb62e854d48e9e056a1e21ae955) 
+Shadow bytes around the buggy address:
+  0xe800439e0b80: f1 f1 f1 f1 00 00 00 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0xe800439e0c00: f1 f1 f1 f1 00 00 00 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0xe800439e0c80: f1 f1 f1 f1 00 00 00 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0xe800439e0d00: f1 f1 f1 f1 00 00 00 f3 f3 f3 f3 f3 f3 f3 f3 f3
+  0xe800439e0d80: f1 f1 f1 f1 f8 f8 f2 f2 f8 f2 f2 f2 f8 f8 f3 f3
+=>0xe800439e0e00: f1 f1 f1 f1 00 f2 f2 f2 00 00 00 00[f3]f3 f3 f3
+  0xe800439e0e80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0xe800439e0f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0xe800439e0f80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0xe800439e1000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0xe800439e1080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==118817==ABORTING
+error: test failed, to rerun pass `--test integration`
+
+Caused by:
+  process didn't exit successfully: `/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/asan/aarch64-unknown-linux-gnu/debug/build/broken-app/93dc2893cfd25661/out/integration-93dc2893cfd25661 sums_even_numbers` (exit status: 1)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

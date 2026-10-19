@@ -1,0 +1,19 @@
+Breakpoint 1 at 0x4c028: file src/lib.rs, line 42.
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
+
+running 1 test
+test normalize_removes_all_whitespace ... [New Thread 0xfffff7daf0e0 (LWP 586739)]
+[Switching to Thread 0xfffff7daf0e0 (LWP 586739)]
+
+Thread 2 "normalize_remov" hit Breakpoint 1, broken_app::normalize (input=" Hello\tWorld ") at src/lib.rs:42
+42	    input.replace(' ', "").to_lowercase()
+input = " Hello\tWorld "
+0x0000aaaaaaab5754 in integration::normalize_removes_all_whitespace () at tests/integration.rs:61
+61	    assert_eq!(normalize(" Hello\tWorld "), "helloworld");
+Value returned is $1 = <error: Cannot access memory at address 0xf878b8a79633974f>

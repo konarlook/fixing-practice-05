@@ -1,0 +1,349 @@
+   Compiling compiler_builtins v0.1.160 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling libc v0.2.189
+   Compiling object v0.39.1
+   Compiling std v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std)
+   Compiling test v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test)
+   Compiling proc-macro2 v1.0.103
+   Compiling unicode-ident v1.0.22
+   Compiling quote v1.0.42
+   Compiling serde_core v1.0.228
+   Compiling crossbeam-utils v0.8.21
+   Compiling syn v2.0.111
+   Compiling zerocopy v0.8.31
+   Compiling serde v1.0.228
+   Compiling autocfg v1.5.0
+   Compiling rayon-core v1.13.0
+   Compiling num-traits v0.2.19
+   Compiling serde_json v1.0.145
+   Compiling libc v0.2.178
+   Compiling zerocopy-derive v0.8.31
+   Compiling serde_derive v1.0.228
+   Compiling rustc-std-workspace-core v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+   Compiling alloc v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+   Compiling adler2 v2.0.1
+   Compiling memchr v2.8.3
+   Compiling rustc-demangle v0.1.28
+   Compiling unwind v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/unwind)
+   Compiling cfg-if v1.0.4
+   Compiling rustc-literal-escaper v0.0.8
+   Compiling rustc-std-workspace-alloc v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-alloc)
+   Compiling panic_unwind v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_unwind)
+   Compiling panic_abort v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_abort)
+   Compiling gimli v0.34.0
+   Compiling std_detect v0.1.5 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std_detect)
+   Compiling miniz_oxide v0.9.1
+   Compiling hashbrown v0.17.1
+   Compiling addr2line v0.27.1
+   Compiling rustc-std-workspace-std v1.99.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-std)
+   Compiling proc_macro v0.0.0 (/home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/proc_macro)
+   Compiling getopts v0.2.24
+   Compiling crossbeam-epoch v0.9.18
+   Compiling either v1.15.0
+   Compiling crossbeam-deque v0.8.6
+   Compiling memchr v2.7.6
+   Compiling plotters-backend v0.3.7
+   Compiling ciborium-io v0.2.2
+   Compiling clap_lex v0.7.6
+   Compiling anstyle v1.0.13
+   Compiling ryu v1.0.20
+   Compiling itoa v1.0.15
+   Compiling regex-syntax v0.8.8
+   Compiling clap_builder v4.5.53
+   Compiling half v2.7.1
+   Compiling ciborium-ll v0.2.2
+   Compiling plotters-svg v0.3.7
+   Compiling regex-automata v0.4.13
+   Compiling itertools v0.10.5
+   Compiling same-file v1.0.6
+   Compiling cast v0.3.0
+   Compiling criterion-plot v0.5.0
+   Compiling walkdir v2.5.0
+   Compiling is-terminal v0.4.17
+   Compiling plotters v0.3.7
+   Compiling regex v1.12.2
+   Compiling clap v4.5.53
+   Compiling rayon v1.11.0
+   Compiling ciborium v0.2.2
+   Compiling tinytemplate v1.2.1
+   Compiling once_cell v1.21.3
+   Compiling broken-app v0.1.0 (/Users/konarlook/code/rust/fixing-practice-05/broken-app)
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:60:15
+   |
+60 |     let val = *raw;
+   |               ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> src/lib.rs:61:10
+   |
+61 |     drop(Box::from_raw(raw));
+   |          ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> src/lib.rs:62:11
+   |
+62 |     val + *raw
+   |           ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+   Compiling anes v0.1.6
+   Compiling oorandom v11.1.5
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+   Compiling criterion v0.5.1
+warning: unused import: `broken_app::concurrency::reset_counter`
+ --> tests/integration.rs:1:5
+  |
+1 | use broken_app::concurrency::reset_counter;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `broken-app` (test "integration") generated 1 warning (run `cargo fix --test "integration" -p broken-app` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 22.44s
+     Running tests/integration.rs (target/tsan/aarch64-unknown-linux-gnu/debug/build/broken-app/df4a62458d423551/out/integration-df4a62458d423551)
+
+running 1 test
+==================
+WARNING: ThreadSanitizer: data race (pid=120399)
+  Read of size 8 at 0xaaaaac10bc10 by thread T3:
+    #0 broken_app::concurrency::race_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 (integration-df4a62458d423551+0x200504) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0x1ff5d8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x1f968c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x20a6a8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x200f14) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 __rust_try 8z2va6t66is06t3ep9wvkm4y9:? (integration-df4a62458d423551+0x201290) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x200d10) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x1f9a80) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x1f9338) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1f3fc0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Previous write of size 8 at 0xaaaaac10bc10 by thread T2:
+    #0 broken_app::concurrency::race_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 (integration-df4a62458d423551+0x200568) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0x1ff5d8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x1f968c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x20a6a8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x200f14) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 __rust_try 8z2va6t66is06t3ep9wvkm4y9:? (integration-df4a62458d423551+0x201290) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x200d10) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x1f9a80) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x1f9338) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1f3fc0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Thread T3 (tid=120403, running) created by thread T1 at:
+    #0 pthread_create ??:? (integration-df4a62458d423551+0x46f50) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 <std::sys::thread::unix::Thread>::new /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:107 (integration-df4a62458d423551+0x2e5370) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:116 (integration-df4a62458d423551+0x1f8fbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <std::thread::builder::Builder>::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:261 (integration-df4a62458d423551+0x1fd548) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 <std::thread::builder::Builder>::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:191 (integration-df4a62458d423551+0x1fd664) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 std::thread::functions::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/functions.rs:131 (integration-df4a62458d423551+0x1f7af8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 broken_app::concurrency::race_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:12 (integration-df4a62458d423551+0x1f6458) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 integration::race_increment_counts_every_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:53 (integration-df4a62458d423551+0xdf418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 integration::race_increment_counts_every_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:47 (integration-df4a62458d423551+0xde6a4) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <integration::race_increment_counts_every_increment::{closure#0} as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0xdc7a0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d9dbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:701 (integration-df4a62458d423551+0xdfc68) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #12 <test::types::RunnableTest>::run /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/types.rs:147 (integration-df4a62458d423551+0x106028) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #13 test::run_test_in_process::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe7468) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #14 <core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x176158) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #15 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194f30) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #16 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #17 std::panicking::catch_unwind::<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x188494) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #18 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100de8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #19 test::run_test_in_process /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe9974) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #20 test::run_test::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:645 (integration-df4a62458d423551+0xe8058) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #21 test::run_test::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:675 (integration-df4a62458d423551+0xe8418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #22 std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0xf01e8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #23 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x16d454) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #24 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x1760f0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #25 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194e28) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #26 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #27 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x1885fc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #28 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100d70) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #29 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x16cf94) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #30 <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d4c84) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #31 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #32 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Thread T2 (tid=120402, running) created by thread T1 at:
+    #0 pthread_create ??:? (integration-df4a62458d423551+0x46f50) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 <std::sys::thread::unix::Thread>::new /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:107 (integration-df4a62458d423551+0x2e5370) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:116 (integration-df4a62458d423551+0x1f8fbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <std::thread::builder::Builder>::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:261 (integration-df4a62458d423551+0x1fd548) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 <std::thread::builder::Builder>::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:191 (integration-df4a62458d423551+0x1fd664) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 std::thread::functions::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/functions.rs:131 (integration-df4a62458d423551+0x1f7af8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 broken_app::concurrency::race_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:12 (integration-df4a62458d423551+0x1f6458) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 integration::race_increment_counts_every_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:53 (integration-df4a62458d423551+0xdf418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 integration::race_increment_counts_every_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:47 (integration-df4a62458d423551+0xde6a4) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <integration::race_increment_counts_every_increment::{closure#0} as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0xdc7a0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d9dbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:701 (integration-df4a62458d423551+0xdfc68) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #12 <test::types::RunnableTest>::run /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/types.rs:147 (integration-df4a62458d423551+0x106028) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #13 test::run_test_in_process::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe7468) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #14 <core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x176158) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #15 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194f30) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #16 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #17 std::panicking::catch_unwind::<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x188494) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #18 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100de8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #19 test::run_test_in_process /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe9974) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #20 test::run_test::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:645 (integration-df4a62458d423551+0xe8058) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #21 test::run_test::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:675 (integration-df4a62458d423551+0xe8418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #22 std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0xf01e8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #23 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x16d454) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #24 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x1760f0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #25 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194e28) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #26 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #27 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x1885fc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #28 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100d70) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #29 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x16cf94) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #30 <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d4c84) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #31 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #32 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+SUMMARY: ThreadSanitizer: data race /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 in broken_app::concurrency::race_increment::{closure#0}
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=120399)
+  Write of size 8 at 0xaaaaac10bc10 by thread T4:
+    #0 broken_app::concurrency::race_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 (integration-df4a62458d423551+0x200568) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0x1ff5d8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x1f968c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x20a6a8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x200f14) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 __rust_try 8z2va6t66is06t3ep9wvkm4y9:? (integration-df4a62458d423551+0x201290) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x200d10) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x1f9a80) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x1f9338) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1f3fc0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Previous write of size 8 at 0xaaaaac10bc10 by thread T2:
+    #0 broken_app::concurrency::race_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 (integration-df4a62458d423551+0x200568) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 std::sys::backtrace::__rust_begin_short_backtrace::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0x1ff5d8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x1f968c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x20a6a8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x200f14) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 __rust_try 8z2va6t66is06t3ep9wvkm4y9:? (integration-df4a62458d423551+0x201290) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x200d10) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x1f9a80) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x1f9338) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <std::thread::lifecycle::spawn_unchecked<broken_app::concurrency::race_increment::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1f3fc0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Thread T4 (tid=120404, running) created by thread T1 at:
+    #0 pthread_create ??:? (integration-df4a62458d423551+0x46f50) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 <std::sys::thread::unix::Thread>::new /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:107 (integration-df4a62458d423551+0x2e5370) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:116 (integration-df4a62458d423551+0x1f8fbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <std::thread::builder::Builder>::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:261 (integration-df4a62458d423551+0x1fd548) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 <std::thread::builder::Builder>::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:191 (integration-df4a62458d423551+0x1fd664) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 std::thread::functions::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/functions.rs:131 (integration-df4a62458d423551+0x1f7af8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 broken_app::concurrency::race_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:12 (integration-df4a62458d423551+0x1f6458) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 integration::race_increment_counts_every_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:53 (integration-df4a62458d423551+0xdf418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 integration::race_increment_counts_every_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:47 (integration-df4a62458d423551+0xde6a4) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <integration::race_increment_counts_every_increment::{closure#0} as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0xdc7a0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d9dbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:701 (integration-df4a62458d423551+0xdfc68) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #12 <test::types::RunnableTest>::run /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/types.rs:147 (integration-df4a62458d423551+0x106028) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #13 test::run_test_in_process::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe7468) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #14 <core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x176158) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #15 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194f30) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #16 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #17 std::panicking::catch_unwind::<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x188494) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #18 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100de8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #19 test::run_test_in_process /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe9974) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #20 test::run_test::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:645 (integration-df4a62458d423551+0xe8058) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #21 test::run_test::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:675 (integration-df4a62458d423551+0xe8418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #22 std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0xf01e8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #23 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x16d454) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #24 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x1760f0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #25 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194e28) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #26 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #27 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x1885fc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #28 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100d70) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #29 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x16cf94) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #30 <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d4c84) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #31 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #32 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+  Thread T2 (tid=120402, running) created by thread T1 at:
+    #0 pthread_create ??:? (integration-df4a62458d423551+0x46f50) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #1 <std::sys::thread::unix::Thread>::new /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:107 (integration-df4a62458d423551+0x2e5370) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #2 std::thread::lifecycle::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:116 (integration-df4a62458d423551+0x1f8fbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #3 <std::thread::builder::Builder>::spawn_unchecked::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:261 (integration-df4a62458d423551+0x1fd548) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #4 <std::thread::builder::Builder>::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/builder.rs:191 (integration-df4a62458d423551+0x1fd664) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #5 std::thread::functions::spawn::<broken_app::concurrency::race_increment::{closure#0}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/functions.rs:131 (integration-df4a62458d423551+0x1f7af8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #6 broken_app::concurrency::race_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:12 (integration-df4a62458d423551+0x1f6458) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #7 integration::race_increment_counts_every_increment /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:53 (integration-df4a62458d423551+0xdf418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #8 integration::race_increment_counts_every_increment::{closure#0} /Users/konarlook/code/rust/fixing-practice-05/broken-app/tests/integration.rs:47 (integration-df4a62458d423551+0xde6a4) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #9 <integration::race_increment_counts_every_increment::{closure#0} as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0xdc7a0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #10 <fn() -> core::result::Result<(), alloc::string::String> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d9dbc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #11 test::__rust_begin_short_backtrace::<core::result::Result<(), alloc::string::String>, fn() -> core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:701 (integration-df4a62458d423551+0xdfc68) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #12 <test::types::RunnableTest>::run /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/types.rs:147 (integration-df4a62458d423551+0x106028) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #13 test::run_test_in_process::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe7468) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #14 <core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x176158) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #15 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194f30) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #16 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #17 std::panicking::catch_unwind::<core::result::Result<(), alloc::string::String>, core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x188494) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #18 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<test::run_test_in_process::{closure#0}>, core::result::Result<(), alloc::string::String>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100de8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #19 test::run_test_in_process /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:724 (integration-df4a62458d423551+0xe9974) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #20 test::run_test::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:645 (integration-df4a62458d423551+0xe8058) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #21 test::run_test::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/test/src/lib.rs:675 (integration-df4a62458d423551+0xe8418) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #22 std::sys::backtrace::__rust_begin_short_backtrace::<test::run_test::{closure#1}, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:166 (integration-df4a62458d423551+0xf01e8) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #23 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:70 (integration-df4a62458d423551+0x16d454) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #24 <core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/panic/unwind_safe.rs:273 (integration-df4a62458d423551+0x1760f0) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #25 std::panicking::catch_unwind::do_call::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:573 (integration-df4a62458d423551+0x194e28) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #26 __rust_try test.18b28173b2c3886c-cgu.14:? (integration-df4a62458d423551+0x199224) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #27 std::panicking::catch_unwind::<(), core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panicking.rs:541 (integration-df4a62458d423551+0x1885fc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #28 std::panic::catch_unwind::<core::panic::unwind_safe::AssertUnwindSafe<std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1}::{closure#0}>, ()> /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/panic.rs:359 (integration-df4a62458d423551+0x100d70) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #29 std::thread::lifecycle::spawn_unchecked::<test::run_test::{closure#1}, ()>::{closure#1} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/lifecycle.rs:68 (integration-df4a62458d423551+0x16cf94) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #30 <std::thread::lifecycle::spawn_unchecked<test::run_test::{closure#1}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0} /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250 (integration-df4a62458d423551+0x1d4c84) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #31 <alloc::boxed::Box<dyn core::ops::function::FnOnce<(), Output = ()> + core::marker::Send> as core::ops::function::FnOnce<()>>::call_once /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/boxed.rs:2387 (integration-df4a62458d423551+0x2f27dc) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+    #32 <std::sys::thread::unix::Thread>::new::thread_start /home/konarlook.guest/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/thread/unix.rs:127 (integration-df4a62458d423551+0x2f156c) (BuildId: 4a2c44c46169d873a84b2b89a0a076453925c839)
+
+SUMMARY: ThreadSanitizer: data race /Users/konarlook/code/rust/fixing-practice-05/broken-app/src/concurrency.rs:15 in broken_app::concurrency::race_increment::{closure#0}
+==================
+test race_increment_counts_every_increment ... FAILED
+
+failures:
+
+---- race_increment_counts_every_increment stdout ----
+
+thread 'race_increment_counts_every_increment' (120401) panicked at tests/integration.rs:53:5:
+assertion `left == right` failed
+  left: 63209
+ right: 400000
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    race_increment_counts_every_increment
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.22s
+
+ThreadSanitizer: reported 2 warnings
+error: test failed, to rerun pass `--test integration`
+
+Caused by:
+  process didn't exit successfully: `/Users/konarlook/code/rust/fixing-practice-05/broken-app/target/tsan/aarch64-unknown-linux-gnu/debug/build/broken-app/df4a62458d423551/out/integration-df4a62458d423551 race_increment` (exit status: 66)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

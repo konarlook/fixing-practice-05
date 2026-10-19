@@ -12,3 +12,6 @@ reference-app = { path = "../reference-app" }
 [[bench]]
 name = "baseline"
 harness = false
+
+[profile.release]
+debug = true

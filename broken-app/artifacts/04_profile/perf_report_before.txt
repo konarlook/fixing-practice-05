@@ -1,0 +1,25 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 9
+#
+# Samples: 385  of event 'task-clock:ppp'
+# Event count (approx.): 386158465
+#
+# Overhead  Symbol                                                                                                                                                                                         IPC   [IPC Coverage]
+# ........  .............................................................................................................................................................................................  ....................
+#
+    32.73%  [.] core::slice::sort::unstable::quicksort::quicksort::<u64, <u64 as core::cmp::PartialOrd>::lt>                                                                                               -      -            
+    26.23%  [.] broken_app::average_positive                                                                                                                                                               -      -            
+    16.36%  [.] core::slice::sort::shared::smallsort::small_sort_network::<u64, <u64 as core::cmp::PartialOrd>::lt>                                                                                        -      -            
+     6.23%  [.] broken_app::algo::slow_fib                                                                                                                                                                 -      -            
+     4.16%  [.] broken_app::algo::slow_dedup                                                                                                                                                               -      -            
+     4.16%  [.] broken_app::sum_even                                                                                                                                                                       -      -            
+     3.12%  [.] core::slice::sort::shared::pivot::median3_rec::<u64, <u64 as core::cmp::PartialOrd>::lt>                                                                                                   -      -            
+     2.34%  [.] broken_app::leak_buffer                                                                                                                                                                    -      -            
+     2.34%  [.] core::slice::sort::unstable::ipnsort::<u64, <u64 as core::cmp::PartialOrd>::lt>                                                                                                            -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

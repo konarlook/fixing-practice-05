@@ -1,4 +1,4 @@
-No source file named broken_app.
+Breakpoint 1 at 0x4be84: file src/lib.rs, line 48.
 
 This GDB supports auto-downloading debuginfo from the following URLs:
   <https://debuginfod.ubuntu.com>
@@ -8,24 +8,15 @@ To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
 Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
 
 running 1 test
-test averages_only_positive ... [New Thread 0xfffff7daf0e0 (LWP 586705)]
-FAILED
+test averages_only_positive ... [New Thread 0xfffff7daf0e0 (LWP 589054)]
+[Switching to Thread 0xfffff7daf0e0 (LWP 589054)]
 
-failures:
-
----- averages_only_positive stdout ----
-
-thread 'averages_only_positive' (586705) panicked at tests/integration.rs:37:5:
-assertion failed: (broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-
-
-failures:
-    averages_only_positive
-
-test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.00s
-
-[Thread 0xfffff7daf0e0 (LWP 586705) exited]
-[Inferior 1 (process 586684) exited with code 0145]
-scripts/gdb/average_positive.gdb:5: Error in sourced command file:
-No frame selected.
+Thread 2 "averages_only_p" hit Breakpoint 1, broken_app::average_positive (values=&[i64](size=3) = {...}) at src/lib.rs:48
+48	    let sum: i64 = values.iter().sum();
+values = &[i64](size=3) = {-5, 5, 15}
+49	    if values.is_empty() {
+$1 = 15
+52	    sum as f64 / values.len() as f64
+0x0000aaaaaaab5470 in integration::averages_only_positive () at tests/integration.rs:37
+37	    assert!((broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
+Value returned is $2 = 5

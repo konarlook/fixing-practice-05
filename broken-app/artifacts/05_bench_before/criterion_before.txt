@@ -1,0 +1,164 @@
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling serde_core v1.0.228
+   Compiling crossbeam-utils v0.8.21
+   Compiling zerocopy v0.8.31
+   Compiling find-msvc-tools v0.1.15
+   Compiling syn v2.0.111
+   Compiling shlex v2.0.1
+   Compiling autocfg v1.5.0
+   Compiling serde v1.0.228
+   Compiling num-traits v0.2.19
+   Compiling cc v1.9.0
+   Compiling crossbeam-epoch v0.9.18
+   Compiling rayon-core v1.13.0
+   Compiling either v1.15.0
+   Compiling serde_json v1.0.145
+   Compiling cfg-if v1.0.4
+   Compiling libc v0.2.178
+   Compiling crossbeam-deque v0.8.6
+   Compiling alloca v0.4.0
+   Compiling regex-syntax v0.8.8
+   Compiling plotters-backend v0.3.7
+   Compiling ciborium-io v0.2.2
+   Compiling zerocopy-derive v0.8.31
+   Compiling serde_derive v1.0.228
+   Compiling ryu v1.0.20
+   Compiling memchr v2.7.6
+   Compiling clap_lex v0.7.6
+   Compiling anstyle v1.0.13
+   Compiling itoa v1.0.15
+   Compiling half v2.7.1
+   Compiling ciborium-ll v0.2.2
+   Compiling clap_builder v4.5.53
+   Compiling regex-automata v0.4.13
+   Compiling plotters-svg v0.3.7
+   Compiling itertools v0.13.0
+   Compiling same-file v1.0.6
+   Compiling cast v0.3.0
+   Compiling criterion-plot v0.8.2
+   Compiling walkdir v2.5.0
+   Compiling rayon v1.11.0
+   Compiling plotters v0.3.7
+   Compiling page_size v0.6.0
+   Compiling clap v4.5.53
+   Compiling regex v1.12.2
+   Compiling ciborium v0.2.2
+   Compiling tinytemplate v1.2.1
+   Compiling anes v0.1.6
+   Compiling oorandom v11.1.5
+   Compiling criterion v0.8.2
+   Compiling reference-app v0.1.0 (/Users/konarlook/code/rust/fixing-practice-05/reference-app)
+warning: unused import: `std::sync::Arc`
+ --> /Users/konarlook/code/rust/fixing-practice-05/reference-app/src/concurrency.rs:2:5
+  |
+2 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling broken-app v0.1.0 (/Users/konarlook/code/rust/fixing-practice-05/broken-app)
+warning: `reference-app` (lib) generated 1 warning (run `cargo fix --lib -p reference-app` to apply 1 suggestion)
+    Finished `bench` profile [optimized + debuginfo] target(s) in 18.78s
+     Running benches/criterion.rs (target/release/deps/criterion-cfb0c859ab893aaf)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even/1000
+Benchmarking sum_even/1000: Warming up for 3.0000 s
+Benchmarking sum_even/1000: Collecting 100 samples in estimated 5.0008 s (33M iterations)
+Benchmarking sum_even/1000: Analyzing
+sum_even/1000           time:   [164.29 ns 175.50 ns 189.10 ns]
+Found 13 outliers among 100 measurements (13.00%)
+  6 (6.00%) high mild
+  7 (7.00%) high severe
+Benchmarking sum_even/1000000
+Benchmarking sum_even/1000000: Warming up for 3.0000 s
+Benchmarking sum_even/1000000: Collecting 100 samples in estimated 5.2368 s (35k iterations)
+Benchmarking sum_even/1000000: Analyzing
+sum_even/1000000        time:   [140.19 µs 141.14 µs 142.11 µs]
+Found 5 outliers among 100 measurements (5.00%)
+  1 (1.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking leak_buffer/64
+Benchmarking leak_buffer/64: Warming up for 3.0000 s
+Benchmarking leak_buffer/64: Collecting 100 samples in estimated 5.0000 s (426M iterations)
+Benchmarking leak_buffer/64: Analyzing
+leak_buffer/64          time:   [10.586 ns 10.865 ns 11.383 ns]
+Found 10 outliers among 100 measurements (10.00%)
+  6 (6.00%) high mild
+  4 (4.00%) high severe
+Benchmarking leak_buffer/4096
+Benchmarking leak_buffer/4096: Warming up for 3.0000 s
+Benchmarking leak_buffer/4096: Collecting 100 samples in estimated 5.0027 s (8.8M iterations)
+Benchmarking leak_buffer/4096: Analyzing
+leak_buffer/4096        time:   [553.54 ns 559.23 ns 565.85 ns]
+Found 5 outliers among 100 measurements (5.00%)
+  3 (3.00%) high mild
+  2 (2.00%) high severe
+Benchmarking leak_buffer/1048576
+Benchmarking leak_buffer/1048576: Warming up for 3.0000 s
+Benchmarking leak_buffer/1048576: Collecting 100 samples in estimated 5.0464 s (35k iterations)
+Benchmarking leak_buffer/1048576: Analyzing
+leak_buffer/1048576     time:   [138.28 µs 138.85 µs 139.73 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking average_positive/1000
+Benchmarking average_positive/1000: Warming up for 3.0000 s
+Benchmarking average_positive/1000: Collecting 100 samples in estimated 5.0003 s (7.7M iterations)
+Benchmarking average_positive/1000: Analyzing
+average_positive/1000   time:   [644.93 ns 646.71 ns 648.75 ns]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+Benchmarking average_positive/1000000
+Benchmarking average_positive/1000000: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.3s, enable flat sampling, or reduce sample count to 60.
+Benchmarking average_positive/1000000: Collecting 100 samples in estimated 5.2888 s (5050 iterations)
+Benchmarking average_positive/1000000: Analyzing
+average_positive/1000000
+                        time:   [1.0385 ms 1.0442 ms 1.0514 ms]
+Found 10 outliers among 100 measurements (10.00%)
+  4 (4.00%) low mild
+  3 (3.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking fib/20
+Benchmarking fib/20: Warming up for 3.0000 s
+Benchmarking fib/20: Collecting 100 samples in estimated 5.0363 s (293k iterations)
+Benchmarking fib/20: Analyzing
+fib/20                  time:   [17.144 µs 17.312 µs 17.512 µs]
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking fib/32
+Benchmarking fib/32: Warming up for 3.0000 s
+Benchmarking fib/32: Collecting 100 samples in estimated 5.5079 s (1000 iterations)
+Benchmarking fib/32: Analyzing
+fib/32                  time:   [5.4886 ms 5.5230 ms 5.5657 ms]
+Found 9 outliers among 100 measurements (9.00%)
+  5 (5.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking dedup/1000
+Benchmarking dedup/1000: Warming up for 3.0000 s
+Benchmarking dedup/1000: Collecting 10 samples in estimated 10.015 s (27k iterations)
+Benchmarking dedup/1000: Analyzing
+dedup/1000              time:   [375.30 µs 381.49 µs 387.86 µs]
+Benchmarking dedup/5000
+Benchmarking dedup/5000: Warming up for 3.0000 s
+Benchmarking dedup/5000: Collecting 10 samples in estimated 10.132 s (880 iterations)
+Benchmarking dedup/5000: Analyzing
+dedup/5000              time:   [11.507 ms 11.697 ms 11.884 ms]
+Benchmarking dedup/20000
+Benchmarking dedup/20000: Warming up for 3.0000 s
+
+Warning: Unable to complete 10 samples in 10.0s. You may wish to increase target time to 11.8s or enable flat sampling.
+Benchmarking dedup/20000: Collecting 10 samples in estimated 11.791 s (55 iterations)
+Benchmarking dedup/20000: Analyzing
+dedup/20000             time:   [213.64 ms 236.27 ms 250.24 ms]
+Found 2 outliers among 10 measurements (20.00%)
+  2 (20.00%) high severe
+

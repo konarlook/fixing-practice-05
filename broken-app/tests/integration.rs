@@ -108,3 +108,18 @@ fn matches_reference_app() {
         );
     }
 }
+
+#[test]
+fn fib_largest_u64_value() {
+    assert_eq!(algo::slow_fib(93), 12_200_160_415_121_876_738);
+}
+
+#[test]
+fn dedup_edge_cases() {
+    assert_eq!(algo::slow_dedup(&[]), Vec::<u64>::new());
+    assert_eq!(algo::slow_dedup(&[7]), vec![7]);
+    assert_eq!(algo::slow_dedup(&[9, 1, 9, 3, 1, 7]), vec![1, 3, 7, 9]);
+
+    let big: Vec<u64> = (0..1_000_u64).map(|i| (i * 7_919) % 333).collect();
+    assert_eq!(algo::slow_dedup(&big), reference_app::algo::fast_dedup(&big));
+}

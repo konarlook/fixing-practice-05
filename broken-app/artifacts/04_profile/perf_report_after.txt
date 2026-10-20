@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 104
+#
+# Samples: 147  of event 'task-clock:ppp'
+# Event count (approx.): 29405880
+#
+# Overhead  Symbol                            IPC   [IPC Coverage]
+# ........  ................................  ....................
+#
+    35.37%  [.] broken_app::average_positive  -      -            
+    31.97%  [.] broken_app::sum_even          -      -            
+    27.21%  [.] broken_app::leak_buffer       -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

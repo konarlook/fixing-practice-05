@@ -1,0 +1,130 @@
+   Compiling broken-app v0.1.0 (/Users/konarlook/code/rust/fixing-practice-05/broken-app)
+warning: unused import: `std::sync::Arc`
+ --> /Users/konarlook/code/rust/fixing-practice-05/reference-app/src/concurrency.rs:2:5
+  |
+2 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `reference-app` (lib) generated 1 warning (run `cargo fix --lib -p reference-app` to apply 1 suggestion)
+    Finished `bench` profile [optimized + debuginfo] target(s) in 3.05s
+     Running benches/criterion.rs (target/release/deps/criterion-cfb0c859ab893aaf)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even/1000
+Benchmarking sum_even/1000: Warming up for 3.0000 s
+Benchmarking sum_even/1000: Collecting 100 samples in estimated 5.0006 s (36M iterations)
+Benchmarking sum_even/1000: Analyzing
+sum_even/1000           time:   [140.30 ns 141.60 ns 143.12 ns]
+                        change: [−22.816% −18.541% −14.472%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 11 outliers among 100 measurements (11.00%)
+  3 (3.00%) high mild
+  8 (8.00%) high severe
+Benchmarking sum_even/1000000
+Benchmarking sum_even/1000000: Warming up for 3.0000 s
+Benchmarking sum_even/1000000: Collecting 100 samples in estimated 5.5627 s (35k iterations)
+Benchmarking sum_even/1000000: Analyzing
+sum_even/1000000        time:   [143.41 µs 146.27 µs 149.27 µs]
+                        change: [−3.0221% −0.7204% +1.4760%] (p = 0.55 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking leak_buffer/64
+Benchmarking leak_buffer/64: Warming up for 3.0000 s
+Benchmarking leak_buffer/64: Collecting 100 samples in estimated 5.0000 s (441M iterations)
+Benchmarking leak_buffer/64: Analyzing
+leak_buffer/64          time:   [10.510 ns 10.601 ns 10.719 ns]
+                        change: [−6.1827% −2.3282% +0.4606%] (p = 0.22 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+Benchmarking leak_buffer/4096
+Benchmarking leak_buffer/4096: Warming up for 3.0000 s
+Benchmarking leak_buffer/4096: Collecting 100 samples in estimated 5.0027 s (8.7M iterations)
+Benchmarking leak_buffer/4096: Analyzing
+leak_buffer/4096        time:   [575.12 ns 583.30 ns 592.72 ns]
+                        change: [+3.3283% +4.8101% +6.3598%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+Benchmarking leak_buffer/1048576
+Benchmarking leak_buffer/1048576: Warming up for 3.0000 s
+Benchmarking leak_buffer/1048576: Collecting 100 samples in estimated 5.2374 s (35k iterations)
+Benchmarking leak_buffer/1048576: Analyzing
+leak_buffer/1048576     time:   [139.36 µs 140.20 µs 141.16 µs]
+                        change: [−0.3254% +0.5361% +1.3089%] (p = 0.20 > 0.05)
+                        No change in performance detected.
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+
+Benchmarking average_positive/1000
+Benchmarking average_positive/1000: Warming up for 3.0000 s
+Benchmarking average_positive/1000: Collecting 100 samples in estimated 5.0002 s (36M iterations)
+Benchmarking average_positive/1000: Analyzing
+average_positive/1000   time:   [140.81 ns 142.26 ns 144.41 ns]
+                        change: [−78.443% −78.303% −78.099%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 13 outliers among 100 measurements (13.00%)
+  7 (7.00%) high mild
+  6 (6.00%) high severe
+Benchmarking average_positive/1000000
+Benchmarking average_positive/1000000: Warming up for 3.0000 s
+Benchmarking average_positive/1000000: Collecting 100 samples in estimated 5.5396 s (40k iterations)
+Benchmarking average_positive/1000000: Analyzing
+average_positive/1000000
+                        time:   [139.87 µs 145.92 µs 153.93 µs]
+                        change: [−86.718% −86.310% −85.834%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 9 outliers among 100 measurements (9.00%)
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking fib/20
+Benchmarking fib/20: Warming up for 3.0000 s
+Benchmarking fib/20: Collecting 100 samples in estimated 5.0000 s (809M iterations)
+Benchmarking fib/20: Analyzing
+fib/20                  time:   [6.1200 ns 6.1611 ns 6.2002 ns]
+                        change: [−99.965% −99.964% −99.964%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking fib/32
+Benchmarking fib/32: Warming up for 3.0000 s
+Benchmarking fib/32: Collecting 100 samples in estimated 5.0000 s (522M iterations)
+Benchmarking fib/32: Analyzing
+fib/32                  time:   [9.8230 ns 10.063 ns 10.391 ns]
+                        change: [−100.000% −100.000% −100.000%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  2 (2.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking dedup/1000
+Benchmarking dedup/1000: Warming up for 3.0000 s
+Benchmarking dedup/1000: Collecting 10 samples in estimated 10.000 s (2.0M iterations)
+Benchmarking dedup/1000: Analyzing
+dedup/1000              time:   [4.9659 µs 5.0570 µs 5.2362 µs]
+                        change: [−98.675% −98.627% −98.580%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking dedup/5000
+Benchmarking dedup/5000: Warming up for 3.0000 s
+Benchmarking dedup/5000: Collecting 10 samples in estimated 10.001 s (323k iterations)
+Benchmarking dedup/5000: Analyzing
+dedup/5000              time:   [30.201 µs 30.229 µs 30.264 µs]
+                        change: [−99.744% −99.741% −99.737%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high mild
+Benchmarking dedup/20000
+Benchmarking dedup/20000: Warming up for 3.0000 s
+Benchmarking dedup/20000: Collecting 10 samples in estimated 10.002 s (63k iterations)
+Benchmarking dedup/20000: Analyzing
+dedup/20000             time:   [154.31 µs 156.70 µs 158.75 µs]
+                        change: [−99.934% −99.930% −99.927%] (p = 0.00 < 0.05)
+                        Performance has improved.
+

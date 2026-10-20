@@ -27,12 +27,14 @@ pub fn normalize(input: &str) -> String {
 /// Логическая ошибка: усредняет по всем элементам, хотя требуется учитывать
 /// только положительные. Деление на длину среза даёт неверный результат.
 pub fn average_positive(values: &[i64]) -> f64 {
-    let positive: Vec<i64> = values.iter().copied().filter(|&v| v > 0).collect();
-    if positive.is_empty() {
+    let (sum, count) = values
+        .iter()
+        .filter(|&&v| v > 0)
+        .fold((0_i64, 0_usize), |(sum, count), &v| (sum + v, count + 1));
+    if count == 0 {
         return 0.0;
     }
-    let sum: i64 = positive.iter().sum();
-    sum as f64 / positive.len() as f64
+    sum as f64 / count as f64
 }
 
 /// Use-after-free: возвращает значение после освобождения бокса.
